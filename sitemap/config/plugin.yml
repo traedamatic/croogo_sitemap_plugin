@@ -1,0 +1,10 @@
+name: Sitemap
+description: Sitemap Plugin for Croogo Cms
+
+author: Nicolas Taeder
+authorEmail: hallo@codebility.com
+authorUrl: http://codebility.com
+
+dependencies:
+  plugins:
+    - acl
