@@ -51,6 +51,12 @@ The logic behind the html view is very simple. It does not support the parent_id
 
 Probably the submit function for the search engines.
 
+
+New Verion 23.09.10 
+
+- migrated to Croogo 1.3.2 
+
+
 Further Reading:
 
 http://bakery.cakephp.org/articles/view/automatically-generate-dynamic-sitemaps
