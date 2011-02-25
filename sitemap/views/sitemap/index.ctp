@@ -1,6 +1,6 @@
 <?php echo $html->css("/sitemap/css/sitemap.css"); ?>
 <div class="sitemap">
-    <h2><?php echo $this->pageTitle; ?></h2>
+    <h2>Sitemap</h2>
     <ul>
     <?php
         foreach ($sitemapData as $node) {
