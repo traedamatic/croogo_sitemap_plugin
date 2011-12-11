@@ -16,8 +16,10 @@ echo $form->input('Sitemap.changefreq.value', array('default' => $inputs['change
 echo $form->input('Sitemap.changefreq.id', array('type' => 'hidden', 'default' => $inputs['changefreq']['id'] ));
 echo $form->input('Sitemap.priority.value', array('default' => $inputs['priority']['value'], 'label' => 'Priority' ));
 echo $form->input('Sitemap.priority.id', array('type' => 'hidden', 'default' => $inputs['priority']['id'] ));
-echo $form->input('Sitemap.types.value', array('default' => $inputs['types']['value'], 'label' => 'Priority' ));
+echo $form->input('Sitemap.types.value', array('default' => $inputs['types']['value'], 'label' => 'Node types' ));
 echo $form->input('Sitemap.types.id', array('type' => 'hidden', 'default' => $inputs['types']['id'] ));
+echo $form->input('Sitemap.order.value', array('default' => $inputs['order']['value'], 'label' => 'Order' ));
+echo $form->input('Sitemap.order.id', array('type' => 'hidden', 'default' => $inputs['order']['id'] ));
 echo $form->end(__('Submit',true));
 
 ?>

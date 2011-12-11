@@ -35,6 +35,7 @@ class SitemapActivation {
         $controller->Setting->write('Sitemap.changefreq','weekly',array('description' => 'Default Changefeq of the Sitemap entries','editable' => 1));
         $controller->Setting->write('Sitemap.priority',0.8,array('description' => 'Default Priority of the Sitemap entries','editable' => 1));
         $controller->Setting->write('Sitemap.types','blog,node,page',array('description' => 'Default node types to include in the Sitemap','editable' => 1));
+        $controller->Setting->write('Sitemap.order','Node.id',array('description' => 'Default order of nodes in the Sitemap','editable' => 1));
 
      
     }
@@ -63,6 +64,7 @@ class SitemapActivation {
         $controller->Setting->deleteKey('Sitemap.changefreq');
         $controller->Setting->deleteKey('Sitemap.priority');
         $controller->Setting->deleteKey('Sitemap.types');
+        $controller->Setting->deleteKey('Sitemap.order');
 
       
     }
