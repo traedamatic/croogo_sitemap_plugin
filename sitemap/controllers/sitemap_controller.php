@@ -36,10 +36,12 @@ class SitemapController extends SitemapAppController {
         $settings =& ClassRegistry::init('Setting');
         $this->defaults['changefreq'] = $settings->find('all',array('conditions' => array('Setting.key =' => 'Sitemap.changefreq'),'fields' => array('Setting.id','Setting.value')));
         $this->defaults['priority'] = $settings->find('all',array('conditions' => array('Setting.key =' => 'Sitemap.priority'), 'fields' => array('Setting.id','Setting.value')));
+        $this->defaults['types'] = $settings->find('all', array('conditions' => array('Setting.key =' => 'Sitemap.types'), 'fields' => array('Setting.id','Setting.value')));
         
         if (!empty($this->defaults['changefreq'])) {
             $this->defaults['changefreq'] =  $this->defaults['changefreq'][0]['Setting'];
             $this->defaults['priority'] =  $this->defaults['priority'][0]['Setting'];        
+            $this->defaults['types'] =  $this->defaults['types'][0]['Setting'];        
             $this->set('defaults', $this->defaults);
         }
         
@@ -67,7 +69,7 @@ class SitemapController extends SitemapAppController {
         
         $this->Node->contain('Meta');
         
-        $sitemapData = $this->__getSiteMapData($this->Node->find('all',array('conditions' => array('Node.status =' => 1))));
+        $sitemapData = $this->__getSiteMapData($this->Node->find('all',array('conditions' => $this->__getConditions())));
         
         $this->set(compact('sitemapData'));
         
@@ -80,7 +82,7 @@ class SitemapController extends SitemapAppController {
         
         $this->Node->contain('Meta');
         
-        $sitemapData = $this->__getSiteMapData($this->Node->find('all',array('conditions' => array('Node.status =' => 1))));
+        $sitemapData = $this->__getSiteMapData($this->Node->find('all',array('conditions' => $this->__getConditions())));
         
         $this->set(compact('sitemapData'));
         
@@ -102,5 +104,9 @@ class SitemapController extends SitemapAppController {
         return $sitemapData;
     }
 
+    function __getConditions () {
+        return array('Node.status =' => 1, 'Node.type' => array_values(preg_split('/,\s*/', $this->defaults['types']['value'])));
+        
+    }
 }
 ?>
